@@ -77,12 +77,17 @@ public class ObjectRepository {
 	
 	//iFrames Updates
 	public static final String homePageiFrameXpath = "//iframe[@name='homepage']";
-	public static final String ellipsesXpath ="//button[@class='navbar-toggle hidden-lg hidden-md collapsed']";
-	public static final String searchFeildXPath ="//input[@placeholder='Search...' and @value='test']";
-	public static final String searchButtonIconXpath="//input[@value='test' and @placeholder='Search...']//parent::div[1]//button[@class='search-submit']";
+	public static final String ellipsesXpath ="//body[@class='home page-template-default page page-id-6248 skin_custom_color single_instructor masterstudy-theme stm_preloader_0 elementor-beta elementor-default elementor-kit-3570 elementor-page elementor-page-6248 e--ua-blink e--ua-chrome e--ua-webkit']//button[@class='navbar-toggle collapsed hidden-lg hidden-md']";
+	public static final String searchFeildXPath ="//body[@class='home page-template-default page page-id-6248 skin_custom_color single_instructor masterstudy-theme stm_preloader_0 elementor-beta elementor-default elementor-kit-3570 elementor-page elementor-page-6248 e--ua-blink e--ua-chrome e--ua-webkit']//input[@placeholder='Search...' and @name='s']";
+	public static final String searchButtonIconXpath="(//body[@class='home page-template-default page page-id-6248 skin_custom_color single_instructor masterstudy-theme stm_preloader_0 elementor-beta elementor-default elementor-kit-3570 elementor-page elementor-page-6248 e--ua-blink e--ua-chrome e--ua-webkit']//button[@class='search-submit'])[2]";
 	public static final String popupPageiFrameXpath ="//iframe[@name='popuppage']";
 	public static final String alertBoxiFrameXpath="//button[@name='alertbox']";
+	public static final String confirmAlertBoxiFrameXpath="//button[@name='confirmalertbox']";
+	public static final String confirmAlertBoxTextXpath="//p[@id='demo']";
+	public static final String promptAlertBoxiFrameXpath="//button[@name='promptalertbox1234']";
+	public static final String promptAlertBoxTextXpath="//p[@id='demoone']";
 	public static final String formPageiFrameXpath="//iframe[@name='formpage']";
+	public static final String firstNameiFrameXpath ="//input[@id='vfb-5']";
 
 	
 }

@@ -212,6 +212,7 @@ public class StepDefinition {
 		System.out.println("Driver switched");
 		iFramesPage page = PageFactory.initElements(driver, iFramesPage.class);
 		page.handleHomePageiFrame();
+		driver.switchTo().defaultContent();
 	}
 
 	@When("handle popuppage iFrame")
@@ -219,11 +220,12 @@ public class StepDefinition {
 		driver.switchTo().frame(driver.findElement(By.xpath(ObjectRepository.popupPageiFrameXpath)));
 		iFramesPage page = PageFactory.initElements(driver, iFramesPage.class);
 		page.handlePopUpPageiFrame();
+		driver.switchTo().defaultContent();
 	}
 
 	@When("handle formpage iFrame")
 	public void handle_formpage_i_frame() {
-		System.out.println("will be handled");
+		driver.switchTo().frame("formpage");
 
 	}
 
