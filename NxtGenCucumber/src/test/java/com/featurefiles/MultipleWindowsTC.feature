@@ -1,3 +1,4 @@
+@TagTwo
 Feature: Handling multiple Windows
 
   Scenario: To test multiple windows functionality

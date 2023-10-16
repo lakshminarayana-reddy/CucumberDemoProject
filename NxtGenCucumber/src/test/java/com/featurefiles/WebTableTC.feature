@@ -1,3 +1,4 @@
+@TagTwo
 Feature: Handling WebTable and Multi select dropdown
 
   Scenario: To retrive data from WebTable and selecting multiple dropdown

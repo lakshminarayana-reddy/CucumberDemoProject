@@ -1,3 +1,4 @@
+@TagOne
 Feature: Handling different types of alerts
 
   Scenario: Handling all types of alerts

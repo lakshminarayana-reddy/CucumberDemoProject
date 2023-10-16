@@ -1,3 +1,4 @@
+@TagOne
 Feature: Handling Dynamic transaction
 
   Scenario: To pick the static text from the dynamic transaction

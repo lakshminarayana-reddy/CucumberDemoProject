@@ -1,3 +1,4 @@
+@TagOne
 Feature: Handling mouse events
 
   Scenario: To handle mouse events

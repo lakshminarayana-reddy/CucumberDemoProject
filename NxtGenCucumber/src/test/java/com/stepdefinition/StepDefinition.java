@@ -226,6 +226,8 @@ public class StepDefinition {
 	@When("handle formpage iFrame")
 	public void handle_formpage_i_frame() {
 		driver.switchTo().frame("formpage");
+		iFramesPage page = PageFactory.initElements(driver, iFramesPage.class);
+		page.handleFormPageiFrame();
 
 	}
 

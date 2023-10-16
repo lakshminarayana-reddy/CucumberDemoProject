@@ -1,3 +1,4 @@
+@TagTwo
 Feature: Registering demo user
 
   Scenario Outline: To test the register user functinality with multiple set of data
