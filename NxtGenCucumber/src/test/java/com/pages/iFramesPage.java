@@ -59,10 +59,9 @@ public class iFramesPage {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(searchFeild));
 		searchFeild.sendKeys("test");
-		System.out.println("Text feild given");
+		System.out.println("Text field given");
 		searchButton.click();
 		System.out.println("Search button clicked");
-		
 	}
 	public void handlePopUpPageiFrame() {
 		alertBoxiFrame.click();
@@ -83,6 +82,7 @@ public class iFramesPage {
 	}
 	public void handleFormPageiFrame() {
 		firstNameXpath.sendKeys("Sai");
+		System.out.println("Name entered!");
 	}
 
 }

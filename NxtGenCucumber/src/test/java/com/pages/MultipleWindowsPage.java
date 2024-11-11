@@ -27,9 +27,9 @@ public class MultipleWindowsPage {
 	@CacheLookup
 	WebElement newBrowserTab;
 	
-	@FindBy(xpath = ObjectRepository.pythonDataScienceLinkXpath)
+	@FindBy(xpath = ObjectRepository.freeYoutubeCoursesXpath)
 	@CacheLookup
-	WebElement pythonDataScienceLink;
+	WebElement freeYoutubeCourses;
 	
 	@FindBy(xpath = ObjectRepository.homePageXapth)
 	@CacheLookup
@@ -43,7 +43,7 @@ public class MultipleWindowsPage {
 		String childId = iterator.next();
 		driver.switchTo().window(childId);
 		driver.manage().window().maximize();
-		pythonDataScienceLink.click();
+		freeYoutubeCourses.click();
 		driver.close();
 		driver.switchTo().window(parentId);
 		//homePage.click();
@@ -67,7 +67,7 @@ public class MultipleWindowsPage {
 		String childId = iterator.next();
 		driver.switchTo().window(childId);
 		driver.manage().window().maximize();
-		pythonDataScienceLink.click();
+		freeYoutubeCourses.click();
 		driver.close();
 		driver.switchTo().window(parentId);
 		homePage.click();

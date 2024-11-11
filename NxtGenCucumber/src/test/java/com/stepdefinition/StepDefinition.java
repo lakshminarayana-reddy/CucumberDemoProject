@@ -13,12 +13,14 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import com.driverscript.BaseClass;
 import com.objectrepository.ObjectRepository;
 import com.pages.AlertPopupPage;
 import com.pages.DynamicTransactionPage;
 import com.pages.MouseEventPage;
 import com.pages.MultipleWindowsPage;
 import com.pages.ProgressBarPage;
+import com.pages.RegisterDemoPage;
 import com.pages.WebTablePage;
 import com.pages.iFramesPage;
 
@@ -27,26 +29,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 
-public class StepDefinition {
-	Properties prop = new Properties();
-	FileInputStream fis;
-	static WebDriver driver;
-
+public class StepDefinition extends BaseClass {
 	@Given("user launches the application")
 	public void user_launches_the_application() throws IOException {
-		try {
-			fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\java\\com\\driverscript\\configuration.properties");
-			prop.load(fis);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		driver.manage().deleteAllCookies();
-		driver.get(prop.getProperty("url"));
-		driver.manage().window().maximize();
-		System.out.println("Application has launched successfully");
+		launchBrowser();
 	}
 
 	@When("user navigate to Demo sites")
@@ -102,13 +90,14 @@ public class StepDefinition {
 		countryName.selectByVisibleText(countryValue);
 		System.out.println("Address details are entered");
 	}
-
-	@And("email as {string}, DateOfDemo as {string}, ConvinientTimeHour as {string}, ConvinientTimeMin as {string} and MobileNumber as {string}")
-	public void email_as_date_of_demo_as_convinient_time_hour_as_convinient_time_min_as_and_mobile_number_as(String emailValue, String dateOfDemoValue, String hourValue, String minValue, String mobNumValue) {
+	@And("email as {string}, Date as {string}, Month as {string}, Year as {string} ConvinientTimeHour as {string}, ConvinientTimeMin as {string} and MobileNumber as {string}")
+	public void email_as_date_as_month_as_year_as_convinient_time_hour_as_convinient_time_min_as_and_mobile_number_as(String emailValue, String date, String month, String year, String hourValue, String minValue, String mobNumValue) {
 		WebElement email = driver.findElement(By.xpath(ObjectRepository.emailXpath));
 		email.sendKeys(emailValue);
 		WebElement dateOfDemo = driver.findElement(By.xpath(ObjectRepository.dateOfDemoXpath));
-		dateOfDemo.sendKeys(dateOfDemoValue);
+		dateOfDemo.click();
+		RegisterDemoPage page = PageFactory.initElements(driver, RegisterDemoPage.class);
+		page.selectDateOfDemo(year, month, date);
 		WebElement hour = driver.findElement(By.xpath(ObjectRepository.hourXpath));
 		Select hours = new Select(hour);
 		hours.selectByVisibleText(hourValue);
@@ -242,6 +231,12 @@ public class StepDefinition {
 		page.enterTextBox();
 		page.handleDoubleClick();
 		page.handleRightClick();
+	}
+	@When("perform dragAndDrop")
+	public void perform_drag_and_drop() {
+	    MouseEventPage page = PageFactory.initElements(driver, MouseEventPage.class);
+	    boolean status=page.dragAndDrop();
+	    Assert.assertTrue(status);
 	}
 	@When("navigate to ProgressBar page")
 	public void navigate_to_progress_bar_page() {
